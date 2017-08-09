@@ -55,8 +55,13 @@ last(names, function(lastName){
 // 4. Write a function called contains that checks if a name exists in an array.
 // If it does, return true using the callback, if not return false.
 
-function contains(str,cb4){
-  cb4(str);
+function contains(arr, str, cb4){
+  if (arr.indexOf(str) > -1){
+    cb4(true);
+  }
+  else {
+    cb4(false);
+  }
 }
 
 contains(names, 'Colt', function(result){
@@ -82,7 +87,9 @@ uniq(names, function(uniqArr){
 // 6. Write a function called each that takes in an array of names. For each item, use a callback
 // function to return the indices and item.
 
-    //Code Here
+function each(arr, cb6){
+  cb6();
+}
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -93,7 +100,9 @@ each(names, function(item, indice){
 // 7. Write a function called getUserById that looks at the array of user objects (users) and searches for a user by ID
 // and returns that user.
 
- //Code Here
+function getUserId(users, cb7){
+  cb7();
+}
 
 var users = [
   {
