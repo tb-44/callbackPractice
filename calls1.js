@@ -67,3 +67,17 @@ for(var prop in favorites){
   console.log(favorites[prop]);
 };
 console.log(favorites);
+
+var employees = {tom: 'designer', chris : 'engineer', james : 'developer'};
+var employeeNames = [];
+for(var prop in employees){
+  employeeNames.push(prop);
+}
+console.log(employeeNames);
+console.log(employees);
+
+var employeeRoles = [];
+for(var prop in employees){
+  employeeRoles.push(employees[prop]);
+};
+console.log(employeeRoles);
