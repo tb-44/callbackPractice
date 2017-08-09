@@ -26,20 +26,20 @@
 //   console.log('The answer is ' + answer); //should console.log 12
 // });
 
-var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
-
-function contains(str,name,cb4){
-  cb4();
-  }
-}
-
-contains(names, 'Colt', function(result){
-  if(result === true){
-    console.log('Colt is in the array');
-  } else {
-    console.log('Colt is not in the array');
-  }
-});
+// var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+//
+// function contains(str,name,cb4){
+//   cb4();
+//   }
+// }
+//
+// contains(names, 'Colt', function(result){
+//   if(result === true){
+//     console.log('Colt is in the array');
+//   } else {
+//     console.log('Colt is not in the array');
+//   }
+// });
 
 // var ages = [53,50,29,22,16];
 // ages.forEach(function(val,i,arr){
@@ -47,3 +47,23 @@ contains(names, 'Colt', function(result){
 // });
 //
 // console.log(ages);
+
+var ages1 = [53,50,29,22,16];
+var ages2 = ages1.map(function(el){
+  return el + 1;
+});
+
+console.log(ages1);
+console.log(ages2);
+
+var names = ['Suzie','Ben','Mark','Franklin'];
+var shortNames = names.filter(function(val,i,arr){
+  return val.length < 5;
+});
+console.log(shortNames);
+
+var favorites = { color : 'blue', flavor : 'mint oreo', food : 'spagetti'};
+for(var prop in favorites){
+  console.log(favorites[prop]);
+};
+console.log(favorites);
