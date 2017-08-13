@@ -1,21 +1,4 @@
-/* In this repo your job is to write functions to make each function call work properly.
-Below is a sample problem
-
-   sayHi('Hi Katie', function(thingToSay){
-      alert(thingToSay);
-   });
-
-and what you should write is the sayHi function that makes the code above work,
-
-   var sayHi = function(str, cb){
-    cb(str);
-   }
-
-   sayHi('Hi Katie', function(thingToSay){
-      alert(thingToSay); //should alert ('Hi Katie')'
-   });
-
-*/
+///CALLBACK PRACTICE
 
 // 1. Write a function called first that returns the first item of the array using a callback function
 
@@ -28,7 +11,6 @@ first(names, function(firstName){
   console.log('The first name in names is ' + firstName)
 });
 
-
 // 2. Write a function called last which returns the last item of the array using a callback function.
 
 function last(str, cb2){
@@ -38,8 +20,6 @@ function last(str, cb2){
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
 });
-
-
 
 // 3. Write a function called multiply that multiplies two numbers using a callback function.
 
@@ -75,10 +55,24 @@ contains(names, 'Colt', function(result){
 // 5. Write a function called uniq that takes the names array and removes all duplicates and returns
 // the callback function with the array of unique names.
 
-function uniq(arr,cb5){
-  cb5()
+var uniq = function(arr, cb5) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        var found = undefined;
+        for (var y = 0; y < newArr.length; y++) {
+            if (arr[i] === newArr[y]) {
+                found = true;
+                break;
+            }
+        }
+        if (found !== true) {
+            newArr.push(arr[i]);
+        }
+    }
+    cb5(newArr);
 }
 
+var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
@@ -87,21 +81,26 @@ uniq(names, function(uniqArr){
 // 6. Write a function called each that takes in an array of names. For each item, use a callback
 // function to return the indices and item.
 
-function each(arr, cb6){
-  cb6();
+var each = function(arr, cb6) {
+    for (var i = 0; i < arr.length; i++) {
+        cb6(arr[i], i);
+    }
 }
 
+var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
 });
 
-
-
 // 7. Write a function called getUserById that looks at the array of user objects (users) and searches for a user by ID
 // and returns that user.
 
-function getUserId(users, cb7){
-  cb7();
+var getUserById = function(key, cb7) {
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].id === key) {
+            cb7(users[i])
+        }
+    }
 }
 
 var users = [
@@ -125,6 +124,6 @@ var users = [
   },
 ];
 
-getUserById(users, '16t', function(user){
-  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address);
+getUserById('16t', function(user){
+  console.log('The user with the id 16t has the email of ' + user.email + 'the name of ' + user.name + ' and the address of ' + user.address);
 });
